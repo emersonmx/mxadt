@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "stack.h"
+#include <mxadt/stack.h>
 
 mxadt_stack* mxadt_stack_initialize()
 {
@@ -27,31 +27,37 @@ void mxadt_stack_finalize(mxadt_stack* stack)
   free(stack);
 }
 
-void mxadt_stack_push(mxadt_stack* stack, void* data)
+int mxadt_stack_push(mxadt_stack* stack, void* data)
 {
   if (!stack)
-    return;
+    return -1;
 
   mxadt_stack_element* top = stack->top;
   mxadt_stack_element* new_element = malloc(sizeof(mxadt_stack_element));
-  if (new_element)
-  {
-    new_element->data = data;
-    new_element->next = top;
-    stack->top = new_element;
-  }
+  if (!new_element)
+    return -1;
+
+  new_element->data = data;
+  new_element->next = top;
+  stack->top = new_element;
+  stack->size++;
+
+  return 0;
 }
 
-void mxadt_stack_pop(mxadt_stack* stack)
+int mxadt_stack_pop(mxadt_stack* stack)
 {
   if (!stack)
-    return;
+    return -1;
 
   if (!stack->top)
-    return;
+    return -1;
 
   mxadt_stack_element* top = stack->top;
   stack->top = top->next;
   free(top);
+  stack->size--;
+
+  return 0;
 }
 

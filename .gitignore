@@ -1,4 +1,5 @@
 *.o
 *.a
 *.swp
+*.tar.gz
 test/stack_test

@@ -31,19 +31,18 @@ int main()
   mxadt_stack_pop(s);
   mxadt_stack_push(s, (void*) 5);
 
-  printf("Stack size: %u\n", s->size);
-  mxadt_stack_element* top = NULL;
-  for (top = s->top; top != NULL; top = top->next)
+  printf("Stack size: %u\n", mxadt_stack_size(s));
+
+  while(!mxadt_stack_empty(s))
   {
-    printf("%d ", (int) top->data);
+    printf("%d ", (int) mxadt_stack_top(s));
+    mxadt_stack_pop(s);
   }
   printf("\n");
 
-  mxadt_stack_pop(s);
-  mxadt_stack_pop(s);
-  printf("Stack size: %u\n", s->size);
+  printf("Stack size: %u\n", mxadt_stack_size(s));
 
   mxadt_stack_finalize(s);
-  return ;
+  return 0;
 }
 

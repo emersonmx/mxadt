@@ -30,9 +30,9 @@ void mxadt_stack_finalize(mxadt_stack* stack);
 inline unsigned int mxadt_stack_size(mxadt_stack* stack);
 
 void* mxadt_stack_top(mxadt_stack* stack);
-int mxadt_stack_push(mxadt_stack* stack, void* data);
-int mxadt_stack_pop(mxadt_stack* stack);
-int mxadt_stack_empty(mxadt_stack* stack);
+void mxadt_stack_push(mxadt_stack* stack, void* data);
+void mxadt_stack_pop(mxadt_stack* stack);
+inline int mxadt_stack_empty(mxadt_stack* stack);
 
 #endif /* _MXADT_STACK_H */
 

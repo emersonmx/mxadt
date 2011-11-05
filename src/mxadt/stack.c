@@ -50,85 +50,48 @@ mxadt_stack* mxadt_stack_initialize()
 
 void mxadt_stack_finalize(mxadt_stack* stack)
 {
-    if (stack)
+    while (!mxadt_stack_empty(stack))
     {
-        while (!mxadt_stack_empty(stack))
-        {
-            mxadt_stack_pop(stack);
-        }
-
-        free(stack);
+        mxadt_stack_pop(stack);
     }
+
+    free(stack);
 }
 
 unsigned int mxadt_stack_size(mxadt_stack* stack)
 {
-    if (stack)
-    {
-        return stack->size;
-    }
-
-    return 0;
+    return stack->size;
 }
 
 void* mxadt_stack_top(mxadt_stack* stack)
 {
-    void* ret_val = NULL;
-
-    if (stack)
-    {
-        if (stack->top)
-        {
-            ret_val = stack->top->data;
-        }
-    }
-
-    return ret_val;
+    return stack->top->data;
 }
 
-int mxadt_stack_push(mxadt_stack* stack, void* data)
+void mxadt_stack_push(mxadt_stack* stack, void* data)
 {
-    if (stack)
-    {
-        mxadt_stack_element* top = stack->top;
-        mxadt_stack_element* new_element = malloc(sizeof(mxadt_stack_element));
-        if (new_element)
-        {
-            new_element->data = data;
-            new_element->next = top;
-            stack->top = new_element;
-            stack->size++;
-            return 0;
-        }
-    }
+    mxadt_stack_element* top = stack->top;
+    mxadt_stack_element* new_element = malloc(sizeof(mxadt_stack_element));
 
-    return -1;
+    if (new_element)
+    {
+        new_element->data = data;
+        new_element->next = top;
+        stack->top = new_element;
+        stack->size++;
+    }
 }
 
-int mxadt_stack_pop(mxadt_stack* stack)
+void mxadt_stack_pop(mxadt_stack* stack)
 {
-    if (stack)
-    {
-        if (stack->top)
-        {
-            mxadt_stack_element* top = stack->top;
-            stack->top = top->next;
-            free(top);
-            stack->size--;
-            return 0;
-        }
-    }
-
-    return -1;
+    mxadt_stack_element* top = stack->top;
+    stack->top = top->next;
+    free(top);
+    stack->size--;
 }
 
 int mxadt_stack_empty(mxadt_stack* stack)
 {
-    if (stack)
-    {
-        return stack->top == NULL;
-    }
-
-    return 0;
+    return stack->top == NULL;
 }
 

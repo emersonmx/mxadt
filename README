@@ -1,0 +1,26 @@
+                                    mxadt
+                                 Version 0.1
+
+---
+https://github.com/emersonmx/mxadt
+
+mxadt is a library of abstract data types (stacks, queues, trees, hash table,
+etc.) cross-platform and written in C.
+
+The idea of creating the library, came the need to have a library specializing
+in abstract data types.
+
+The current version has been compiled and tested only on GNU / Linux, but with
+the course of development, will be given support to other operating systems.
+
+This library is distributed under the GPL v3, which can be found the file
+"COPYING".
+
+The test programs can be found in the "test".
+
+If you need help with the library, talk about improvements that can be added
+or simply contribute to the project, send me an e-mail I'll be happy to
+answer it.
+
+Enjoy!
+    Emerson Max                 (emersonmx@gmail.com)

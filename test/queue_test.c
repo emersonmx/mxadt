@@ -20,32 +20,35 @@
  */
 
 #include <stdio.h>
-#include <mxadt/stack.h>
+#include <mxadt/queue.h>
 
 int main()
 {
-    mxadt_stack* s = mxadt_stack_initialize();
+    mxadt_queue* q = mxadt_queue_initialize();
 
-    mxadt_stack_push(s, (void*) 10);
-    mxadt_stack_push(s, (void*) 15);
-    mxadt_stack_push(s, (void*) 100000000);
-    mxadt_stack_push(s, (void*) -100000000);
-    mxadt_stack_push(s, (void*) 9);
-    mxadt_stack_push(s, (void*) 1);
-    mxadt_stack_pop(s);
-    mxadt_stack_push(s, (void*) 5);
+    mxadt_queue_push(q, (void*) 10);
+    mxadt_queue_push(q, (void*) 15);
+    mxadt_queue_push(q, (void*) 100000000);
+    mxadt_queue_push(q, (void*) -100000000);
+    mxadt_queue_push(q, (void*) 9);
+    mxadt_queue_push(q, (void*) 1);
+    mxadt_queue_push(q, (void*) 5);
+    mxadt_queue_pop(q);
 
-    printf("Stack size: %u\n", mxadt_stack_size(s));
+    printf("Queue size: %u\n", mxadt_queue_size(q));
 
-    while(!mxadt_stack_empty(s))
+    while(!mxadt_queue_empty(q))
     {
-        printf("%d ", (int) mxadt_stack_top(s));
-        mxadt_stack_pop(s);
+        printf("Front: %d Back: %d\n",
+               (int) mxadt_queue_front(q),
+               (int) mxadt_queue_back(q));
+        mxadt_queue_pop(q);
     }
 
-    printf("\nStack size: %u\n", mxadt_stack_size(s));
+    printf("Queue size: %u\n", mxadt_queue_size(q));
 
-    mxadt_stack_finalize(s);
+    mxadt_queue_finalize(q);
+
     return 0;
 }
 

@@ -19,33 +19,21 @@
  * along with mxadt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <stdio.h>
-#include <mxadt/stack.h>
+#ifndef _MXADT_QUEUE_H
+#define _MXADT_QUEUE_H
 
-int main()
-{
-    mxadt_stack* s = mxadt_stack_initialize();
+typedef struct mxadt_queue mxadt_queue;
 
-    mxadt_stack_push(s, (void*) 10);
-    mxadt_stack_push(s, (void*) 15);
-    mxadt_stack_push(s, (void*) 100000000);
-    mxadt_stack_push(s, (void*) -100000000);
-    mxadt_stack_push(s, (void*) 9);
-    mxadt_stack_push(s, (void*) 1);
-    mxadt_stack_pop(s);
-    mxadt_stack_push(s, (void*) 5);
+mxadt_queue* mxadt_queue_initialize();
+void mxadt_queue_finalize(mxadt_queue* queue);
 
-    printf("Stack size: %u\n", mxadt_stack_size(s));
+inline unsigned int mxadt_queue_size(mxadt_queue* queue);
 
-    while(!mxadt_stack_empty(s))
-    {
-        printf("%d ", (int) mxadt_stack_top(s));
-        mxadt_stack_pop(s);
-    }
+void* mxadt_queue_front(mxadt_queue* queue);
+void* mxadt_queue_back(mxadt_queue* queue);
+void mxadt_queue_push(mxadt_queue* queue, void* data);
+void mxadt_queue_pop(mxadt_queue* queue);
+inline int mxadt_queue_empty(mxadt_queue* queue);
 
-    printf("\nStack size: %u\n", mxadt_stack_size(s));
-
-    mxadt_stack_finalize(s);
-    return 0;
-}
+#endif /* _MXADT_QUEUE_H */
 

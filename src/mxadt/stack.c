@@ -39,7 +39,7 @@ mxadt_stack* mxadt_stack_initialize()
 {
     mxadt_stack* stack = malloc(sizeof(mxadt_stack));
 
-    if (stack)
+    if (stack != NULL)
     {
         stack->size = 0;
         stack->top = NULL;
@@ -73,7 +73,7 @@ void mxadt_stack_push(mxadt_stack* stack, void* data)
     mxadt_stack_element* top = stack->top;
     mxadt_stack_element* new_element = malloc(sizeof(mxadt_stack_element));
 
-    if (new_element)
+    if (new_element != NULL)
     {
         new_element->data = data;
         new_element->next = top;

@@ -40,7 +40,7 @@ mxadt_queue* mxadt_queue_initialize()
 {
     mxadt_queue* queue = malloc(sizeof(mxadt_queue));
 
-    if (queue)
+    if (queue != NULL)
     {
         queue->size = 0;
         queue->front = queue->back = NULL;
@@ -78,7 +78,7 @@ void mxadt_queue_push(mxadt_queue* queue, void* data)
 {
     mxadt_queue_element* new_element = malloc(sizeof(mxadt_queue_element));
 
-    if (new_element)
+    if (new_element != NULL)
     {
         new_element->data = data;
         new_element->next = NULL;

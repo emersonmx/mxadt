@@ -63,6 +63,11 @@ unsigned int mxadt_stack_size(mxadt_stack* stack)
     return stack->size;
 }
 
+int mxadt_stack_empty(mxadt_stack* stack)
+{
+    return stack->top == NULL;
+}
+
 void* mxadt_stack_top(mxadt_stack* stack)
 {
     return stack->top->data;
@@ -88,10 +93,5 @@ void mxadt_stack_pop(mxadt_stack* stack)
     stack->top = top->next;
     free(top);
     stack->size--;
-}
-
-int mxadt_stack_empty(mxadt_stack* stack)
-{
-    return stack->top == NULL;
 }
 

@@ -64,6 +64,11 @@ unsigned int mxadt_queue_size(mxadt_queue* queue)
     return queue->size;
 }
 
+int mxadt_queue_empty(mxadt_queue* queue)
+{
+    return queue->front == NULL;
+}
+
 void* mxadt_queue_front(mxadt_queue* queue)
 {
     return queue->front->data;
@@ -111,10 +116,5 @@ void mxadt_queue_pop(mxadt_queue* queue)
 
     free(front);
     queue->size--;
-}
-
-int mxadt_queue_empty(mxadt_queue* queue)
-{
-    return queue->front == NULL;
 }
 

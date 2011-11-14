@@ -19,22 +19,7 @@
  * along with mxadt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _MXADT_QUEUE_H
-#define _MXADT_QUEUE_H
+#include <stdlib.h>
+#include <mxadt/linked_list.h>
 
-typedef struct mxadt_queue mxadt_queue;
-
-mxadt_queue* mxadt_queue_initialize();
-void mxadt_queue_finalize(mxadt_queue* queue);
-
-inline unsigned int mxadt_queue_size(mxadt_queue* queue);
-inline int mxadt_queue_empty(mxadt_queue* queue);
-
-inline void* mxadt_queue_front(mxadt_queue* queue);
-inline void* mxadt_queue_back(mxadt_queue* queue);
-
-void mxadt_queue_push(mxadt_queue* queue, void* data);
-void mxadt_queue_pop(mxadt_queue* queue);
-
-#endif /* _MXADT_QUEUE_H */
 

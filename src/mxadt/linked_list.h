@@ -22,16 +22,18 @@
 #ifndef _MXADT_LINKED_LIST_H
 #define _MXADT_LINKED_LIST_H
 
+#include <mxadt/types.h>
+
 typedef struct mxadt_linked_list mxadt_linked_list;
 
 mxadt_linked_list* mxadt_linked_list_initialize();
 void mxadt_linked_list_finalize(mxadt_linked_list* linked_list);
 
 inline unsigned int mxadt_linked_list_size(mxadt_linked_list* linked_list);
-inline int mxadt_linked_list_empty(mxadt_linked_list* linked_list);
+inline bool mxadt_linked_list_empty(mxadt_linked_list* linked_list);
 
-inline mxadt_linked_list_front(mxadt_linked_list* linked_list);
-inline mxadt_linked_list_back(mxadt_linked_list* linked_list);
+inline void* mxadt_linked_list_front(mxadt_linked_list* linked_list);
+inline void* mxadt_linked_list_back(mxadt_linked_list* linked_list);
 
 void mxadt_linked_list_push_front(mxadt_linked_list* linked_list);
 void mxadt_linked_list_pop_back(mxadt_linked_list* linked_list);

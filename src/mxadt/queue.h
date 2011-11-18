@@ -28,7 +28,7 @@ mxadt_queue* mxadt_queue_initialize();
 void mxadt_queue_finalize(mxadt_queue* queue);
 
 inline unsigned int mxadt_queue_size(mxadt_queue* queue);
-inline int mxadt_queue_empty(mxadt_queue* queue);
+inline bool mxadt_queue_empty(mxadt_queue* queue);
 
 inline void* mxadt_queue_front(mxadt_queue* queue);
 inline void* mxadt_queue_back(mxadt_queue* queue);

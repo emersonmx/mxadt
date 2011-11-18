@@ -20,20 +20,14 @@
  */
 
 #include <stdlib.h>
+#include <mxadt/types.h>
 #include <mxadt/queue.h>
-
-typedef struct mxadt_queue_element mxadt_queue_element;
-struct mxadt_queue_element
-{
-    void* data;
-    mxadt_queue_element* next;
-};
 
 struct mxadt_queue
 {
     unsigned int size;
-    mxadt_queue_element* front;
-    mxadt_queue_element* back;
+    mxadt_list_element* front;
+    mxadt_list_element* back;
 };
 
 mxadt_queue* mxadt_queue_initialize()
@@ -64,7 +58,7 @@ unsigned int mxadt_queue_size(mxadt_queue* queue)
     return queue->size;
 }
 
-int mxadt_queue_empty(mxadt_queue* queue)
+bool mxadt_queue_empty(mxadt_queue* queue)
 {
     return queue->front == NULL;
 }
@@ -81,7 +75,7 @@ void* mxadt_queue_back(mxadt_queue* queue)
 
 void mxadt_queue_push(mxadt_queue* queue, void* data)
 {
-    mxadt_queue_element* new_element = malloc(sizeof(mxadt_queue_element));
+    mxadt_list_element* new_element = malloc(sizeof(mxadt_list_element));
 
     if (new_element != NULL)
     {
@@ -102,7 +96,7 @@ void mxadt_queue_push(mxadt_queue* queue, void* data)
 
 void mxadt_queue_pop(mxadt_queue* queue)
 {
-    mxadt_queue_element* front = queue->front;
+    mxadt_list_element* front = queue->front;
 
     if (queue->front == queue->back)
     {

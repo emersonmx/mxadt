@@ -19,21 +19,27 @@
  * along with mxadt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _MXADT_STACK_H
-#define _MXADT_STACK_H
+#ifndef _MXADT_TYPES_H
+#define _MXADT_TYPES_H
 
-typedef struct mxadt_stack mxadt_stack;
+#include <mxadt/config.h>
 
-mxadt_stack* mxadt_stack_initialize();
-void mxadt_stack_finalize(mxadt_stack* stack);
+#ifdef HAVE_STDBOOL_H
+#   include <stdbool.h>
+#else
+typedef enum
+{
+    false,
+    true
+} bool;
+#endif
 
-inline unsigned int mxadt_stack_size(mxadt_stack* stack);
-inline bool mxadt_stack_empty(mxadt_stack* stack);
+typedef struct mxadt_list_element mxadt_list_element;
+struct mxadt_list_element
+{
+    void* data;
+    mxadt_list_element* next;
+};
 
-inline void* mxadt_stack_top(mxadt_stack* stack);
-
-void mxadt_stack_push(mxadt_stack* stack, void* data);
-void mxadt_stack_pop(mxadt_stack* stack);
-
-#endif /* _MXADT_STACK_H */
+#endif /* _MXADT_TYPES_H */
 

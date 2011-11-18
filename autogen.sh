@@ -1,3 +1,5 @@
 #! /bin/sh
 
-autoreconf -i -f
+set -e
+autoreconf -i --force
+rm -rf autom4te.cache

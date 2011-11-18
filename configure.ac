@@ -8,11 +8,12 @@ AC_LIBTOOL_DLOPEN
 AC_PROG_LIBTOOL
 # Checks for libraries.
 # Checks for header files.
+AC_CHECK_HEADERS([stdbool.h])
 # Checks for typedefs, structures and compiler characteristics.
 # Checks for library functions.
 
 # Output files.
-AC_CONFIG_HEADERS([src/mxadt/mxadt_config.h])
+AC_CONFIG_HEADERS([src/mxadt/config.h])
 AC_CONFIG_FILES([
     Makefile
     src/Makefile

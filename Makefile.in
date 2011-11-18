@@ -36,7 +36,7 @@ host_triplet = @host@
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(top_srcdir)/configure \
-	$(top_srcdir)/src/mxadt/mxadt_config.h.in COPYING INSTALL \
+	$(top_srcdir)/src/mxadt/config.h.in COPYING INSTALL \
 	config.guess config.sub depcomp install-sh ltmain.sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
@@ -48,7 +48,7 @@ am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
-CONFIG_HEADER = $(top_builddir)/src/mxadt/mxadt_config.h
+CONFIG_HEADER = $(top_builddir)/src/mxadt/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 SOURCES =
@@ -257,22 +257,22 @@ $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	$(am__cd) $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
 $(am__aclocal_m4_deps):
 
-src/mxadt/mxadt_config.h: src/mxadt/stamp-h1
+src/mxadt/config.h: src/mxadt/stamp-h1
 	@if test ! -f $@; then \
 	  rm -f src/mxadt/stamp-h1; \
 	  $(MAKE) $(AM_MAKEFLAGS) src/mxadt/stamp-h1; \
 	else :; fi
 
-src/mxadt/stamp-h1: $(top_srcdir)/src/mxadt/mxadt_config.h.in $(top_builddir)/config.status
+src/mxadt/stamp-h1: $(top_srcdir)/src/mxadt/config.h.in $(top_builddir)/config.status
 	@rm -f src/mxadt/stamp-h1
-	cd $(top_builddir) && $(SHELL) ./config.status src/mxadt/mxadt_config.h
-$(top_srcdir)/src/mxadt/mxadt_config.h.in:  $(am__configure_deps) 
+	cd $(top_builddir) && $(SHELL) ./config.status src/mxadt/config.h
+$(top_srcdir)/src/mxadt/config.h.in:  $(am__configure_deps) 
 	($(am__cd) $(top_srcdir) && $(AUTOHEADER))
 	rm -f src/mxadt/stamp-h1
 	touch $@
 
 distclean-hdr:
-	-rm -f src/mxadt/mxadt_config.h src/mxadt/stamp-h1
+	-rm -f src/mxadt/config.h src/mxadt/stamp-h1
 
 mostlyclean-libtool:
 	-rm -f *.lo

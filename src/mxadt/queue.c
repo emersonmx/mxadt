@@ -21,6 +21,7 @@
 
 #include <stdlib.h>
 #include <mxadt/queue.h>
+#include <mxadt/single_link_element.h>
 
 struct mxadt_queue
 {
@@ -70,16 +71,6 @@ void* mxadt_queue_front(mxadt_queue* queue)
 void* mxadt_queue_back(mxadt_queue* queue)
 {
     return queue->back->data;
-}
-
-mxadt_single_link_element* mxadt_queue_front_element(mxadt_queue* queue)
-{
-    return queue->front;
-}
-
-mxadt_single_link_element* mxadt_queue_back_element(mxadt_queue* queue)
-{
-    return queue->back;
 }
 
 void mxadt_queue_push(mxadt_queue* queue, void* data)

@@ -21,6 +21,7 @@
 
 #include <stdlib.h>
 #include <mxadt/stack.h>
+#include <mxadt/single_link_element.h>
 
 struct mxadt_stack
 {
@@ -64,11 +65,6 @@ bool mxadt_stack_empty(mxadt_stack* stack)
 void* mxadt_stack_top(mxadt_stack* stack)
 {
     return stack->top->data;
-}
-
-mxadt_single_link_element* mxadt_stack_element_top(mxadt_stack* stack)
-{
-    return stack->top;
 }
 
 void mxadt_stack_push(mxadt_stack* stack, void* data)

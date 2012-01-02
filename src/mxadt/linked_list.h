@@ -23,6 +23,7 @@
 #define _MXADT_LINKED_LIST_H
 
 #include <mxadt/types.h>
+#include <mxadt/double_link_element.h>
 
 typedef struct mxadt_linked_list mxadt_linked_list;
 
@@ -34,10 +35,14 @@ inline bool mxadt_linked_list_empty(mxadt_linked_list* linked_list);
 
 inline void* mxadt_linked_list_front(mxadt_linked_list* linked_list);
 inline void* mxadt_linked_list_back(mxadt_linked_list* linked_list);
+inline mxadt_double_link_element*
+mxadt_linked_list_front_element(mxadt_linked_list* linked_list);
+inline mxadt_double_link_element*
+mxadt_linked_list_back_element(mxadt_linked_list* linked_list);
 
-void mxadt_linked_list_push_front(mxadt_linked_list* linked_list);
-void mxadt_linked_list_pop_back(mxadt_linked_list* linked_list);
-void mxadt_linked_list_push_back(mxadt_linked_list* linked_list);
+void mxadt_linked_list_push_front(mxadt_linked_list* linked_list, void* data);
+void mxadt_linked_list_pop_front(mxadt_linked_list* linked_list);
+void mxadt_linked_list_push_back(mxadt_linked_list* linked_list, void* data);
 void mxadt_linked_list_pop_back(mxadt_linked_list* linked_list);
 
 #endif /* _MXADT_LINKED_LIST_H */

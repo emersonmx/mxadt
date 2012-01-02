@@ -20,13 +20,12 @@
  */
 
 #include <stdlib.h>
-#include <mxadt/types.h>
 #include <mxadt/stack.h>
 
 struct mxadt_stack
 {
     unsigned int size;
-    mxadt_list_element* top;
+    mxadt_single_link_element* top;
 };
 
 mxadt_stack* mxadt_stack_initialize()
@@ -67,10 +66,16 @@ void* mxadt_stack_top(mxadt_stack* stack)
     return stack->top->data;
 }
 
+mxadt_single_link_element* mxadt_stack_element_top(mxadt_stack* stack)
+{
+    return stack->top;
+}
+
 void mxadt_stack_push(mxadt_stack* stack, void* data)
 {
-    mxadt_list_element* top = stack->top;
-    mxadt_list_element* new_element = malloc(sizeof(mxadt_list_element));
+    mxadt_single_link_element* top = stack->top;
+    mxadt_single_link_element* new_element =
+        mxadt_single_link_element_initialize();
 
     if (new_element != NULL)
     {
@@ -83,9 +88,9 @@ void mxadt_stack_push(mxadt_stack* stack, void* data)
 
 void mxadt_stack_pop(mxadt_stack* stack)
 {
-    mxadt_list_element* top = stack->top;
+    mxadt_single_link_element* top = stack->top;
     stack->top = top->next;
-    free(top);
+    mxadt_single_link_element_finalize(top);
     stack->size--;
 }
 

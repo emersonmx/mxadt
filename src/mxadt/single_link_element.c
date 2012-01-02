@@ -1,5 +1,5 @@
 /**
- * Copyright 2011 Emerson Max de Medeiros Silva
+ * Copyright 2011, 2012 Emerson Max de Medeiros Silva
  *
  * Author: Emerson Max de Medeiros Silva <emersonmx@gmail.com>
  *
@@ -19,20 +19,22 @@
  * along with mxadt.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _MXADT_TYPES_H
-#define _MXADT_TYPES_H
+#include <stdlib.h>
+#include <mxadt/single_link_element.h>
 
-#include <mxadt/config.h>
-
-#ifdef HAVE_STDBOOL_H
-#   include <stdbool.h>
-#else
-typedef enum
+mxadt_single_link_element* mxadt_single_link_element_initialize()
 {
-    false,
-    true
-} bool;
-#endif
+    mxadt_single_link_element* element =
+        malloc(sizeof(mxadt_single_link_element));
 
-#endif /* _MXADT_TYPES_H */
+    element->data = NULL;
+    element->next = NULL;
+
+    return element;
+}
+
+void mxadt_single_link_element_finalize(mxadt_single_link_element* element)
+{
+    free(element);
+}
 

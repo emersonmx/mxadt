@@ -22,6 +22,9 @@
 #ifndef _MXADT_QUEUE_H
 #define _MXADT_QUEUE_H
 
+#include <mxadt/types.h>
+#include <mxadt/single_link_element.h>
+
 typedef struct mxadt_queue mxadt_queue;
 
 mxadt_queue* mxadt_queue_initialize();
@@ -32,6 +35,8 @@ inline bool mxadt_queue_empty(mxadt_queue* queue);
 
 inline void* mxadt_queue_front(mxadt_queue* queue);
 inline void* mxadt_queue_back(mxadt_queue* queue);
+inline mxadt_single_link_element* mxadt_queue_front_element(mxadt_queue* queue);
+inline mxadt_single_link_element* mxadt_queue_back_element(mxadt_queue* queue);
 
 void mxadt_queue_push(mxadt_queue* queue, void* data);
 void mxadt_queue_pop(mxadt_queue* queue);

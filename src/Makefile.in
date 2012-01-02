@@ -75,7 +75,9 @@ LIBRARIES = $(lib_LIBRARIES)
 ARFLAGS = cru
 libmxadt_a_AR = $(AR) $(ARFLAGS)
 libmxadt_a_LIBADD =
-am_libmxadt_a_OBJECTS = stack.$(OBJEXT) queue.$(OBJEXT)
+am_libmxadt_a_OBJECTS = stack.$(OBJEXT) queue.$(OBJEXT) \
+	linked_list.$(OBJEXT) single_link_element.$(OBJEXT) \
+	double_link_element.$(OBJEXT)
 libmxadt_a_OBJECTS = $(am_libmxadt_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/src/mxadt
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -211,8 +213,21 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CFLAGS = -Wall
 lib_LIBRARIES = libmxadt.a
-libmxadt_a_SOURCES = mxadt/stack.c mxadt/queue.c
-nobase_include_HEADERS = mxadt/stack.h mxadt/queue.h mxadt/types.h
+libmxadt_a_SOURCES = \
+		mxadt/stack.c \
+		mxadt/queue.c \
+		mxadt/linked_list.c \
+		mxadt/single_link_element.c \
+		mxadt/double_link_element.c
+
+nobase_include_HEADERS = \
+		mxadt/stack.h \
+		mxadt/queue.h \
+		mxadt/linked_list.h \
+		mxadt/types.h \
+		mxadt/single_link_element.h \
+		mxadt/double_link_element.h
+
 all: all-am
 
 .SUFFIXES:
@@ -290,7 +305,10 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/double_link_element.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/linked_list.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/queue.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/single_link_element.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/stack.Po@am__quote@
 
 .c.o:
@@ -341,6 +359,48 @@ queue.obj: mxadt/queue.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mxadt/queue.c' object='queue.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o queue.obj `if test -f 'mxadt/queue.c'; then $(CYGPATH_W) 'mxadt/queue.c'; else $(CYGPATH_W) '$(srcdir)/mxadt/queue.c'; fi`
+
+linked_list.o: mxadt/linked_list.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT linked_list.o -MD -MP -MF $(DEPDIR)/linked_list.Tpo -c -o linked_list.o `test -f 'mxadt/linked_list.c' || echo '$(srcdir)/'`mxadt/linked_list.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/linked_list.Tpo $(DEPDIR)/linked_list.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mxadt/linked_list.c' object='linked_list.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o linked_list.o `test -f 'mxadt/linked_list.c' || echo '$(srcdir)/'`mxadt/linked_list.c
+
+linked_list.obj: mxadt/linked_list.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT linked_list.obj -MD -MP -MF $(DEPDIR)/linked_list.Tpo -c -o linked_list.obj `if test -f 'mxadt/linked_list.c'; then $(CYGPATH_W) 'mxadt/linked_list.c'; else $(CYGPATH_W) '$(srcdir)/mxadt/linked_list.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/linked_list.Tpo $(DEPDIR)/linked_list.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mxadt/linked_list.c' object='linked_list.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o linked_list.obj `if test -f 'mxadt/linked_list.c'; then $(CYGPATH_W) 'mxadt/linked_list.c'; else $(CYGPATH_W) '$(srcdir)/mxadt/linked_list.c'; fi`
+
+single_link_element.o: mxadt/single_link_element.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT single_link_element.o -MD -MP -MF $(DEPDIR)/single_link_element.Tpo -c -o single_link_element.o `test -f 'mxadt/single_link_element.c' || echo '$(srcdir)/'`mxadt/single_link_element.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/single_link_element.Tpo $(DEPDIR)/single_link_element.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mxadt/single_link_element.c' object='single_link_element.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o single_link_element.o `test -f 'mxadt/single_link_element.c' || echo '$(srcdir)/'`mxadt/single_link_element.c
+
+single_link_element.obj: mxadt/single_link_element.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT single_link_element.obj -MD -MP -MF $(DEPDIR)/single_link_element.Tpo -c -o single_link_element.obj `if test -f 'mxadt/single_link_element.c'; then $(CYGPATH_W) 'mxadt/single_link_element.c'; else $(CYGPATH_W) '$(srcdir)/mxadt/single_link_element.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/single_link_element.Tpo $(DEPDIR)/single_link_element.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mxadt/single_link_element.c' object='single_link_element.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o single_link_element.obj `if test -f 'mxadt/single_link_element.c'; then $(CYGPATH_W) 'mxadt/single_link_element.c'; else $(CYGPATH_W) '$(srcdir)/mxadt/single_link_element.c'; fi`
+
+double_link_element.o: mxadt/double_link_element.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT double_link_element.o -MD -MP -MF $(DEPDIR)/double_link_element.Tpo -c -o double_link_element.o `test -f 'mxadt/double_link_element.c' || echo '$(srcdir)/'`mxadt/double_link_element.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/double_link_element.Tpo $(DEPDIR)/double_link_element.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mxadt/double_link_element.c' object='double_link_element.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o double_link_element.o `test -f 'mxadt/double_link_element.c' || echo '$(srcdir)/'`mxadt/double_link_element.c
+
+double_link_element.obj: mxadt/double_link_element.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT double_link_element.obj -MD -MP -MF $(DEPDIR)/double_link_element.Tpo -c -o double_link_element.obj `if test -f 'mxadt/double_link_element.c'; then $(CYGPATH_W) 'mxadt/double_link_element.c'; else $(CYGPATH_W) '$(srcdir)/mxadt/double_link_element.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/double_link_element.Tpo $(DEPDIR)/double_link_element.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mxadt/double_link_element.c' object='double_link_element.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o double_link_element.obj `if test -f 'mxadt/double_link_element.c'; then $(CYGPATH_W) 'mxadt/double_link_element.c'; else $(CYGPATH_W) '$(srcdir)/mxadt/double_link_element.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

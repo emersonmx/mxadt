@@ -22,6 +22,9 @@
 #ifndef _MXADT_STACK_H
 #define _MXADT_STACK_H
 
+#include <mxadt/types.h>
+#include <mxadt/single_link_element.h>
+
 typedef struct mxadt_stack mxadt_stack;
 
 mxadt_stack* mxadt_stack_initialize();
@@ -31,6 +34,7 @@ inline unsigned int mxadt_stack_size(mxadt_stack* stack);
 inline bool mxadt_stack_empty(mxadt_stack* stack);
 
 inline void* mxadt_stack_top(mxadt_stack* stack);
+inline mxadt_single_link_element* mxadt_stack_element_top(mxadt_stack* stack);
 
 void mxadt_stack_push(mxadt_stack* stack, void* data);
 void mxadt_stack_pop(mxadt_stack* stack);

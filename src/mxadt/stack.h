@@ -25,7 +25,7 @@
 #include <mxadt/types.h>
 
 /**
- * This is the forward declaration of the abstract data type "stack".
+ * This is the declaration of the abstract data type "stack".
  * The attributes of structure was hidden of the programmer, for avoid
  * mistakes in programming.
  */
@@ -40,7 +40,8 @@ mxadt_stack* mxadt_stack_initialize();
 /**
  * Destroys the stack passed by parameter.
  *
- * @param stack the pointer for the stack. if stack pointer is NULL, nothing happens.
+ * @param stack the pointer for the stack. if stack pointer is NULL,
+ * nothing happens.
  */
 void mxadt_stack_finalize(mxadt_stack* stack);
 

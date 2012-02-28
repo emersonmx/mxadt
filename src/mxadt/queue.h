@@ -24,18 +24,78 @@
 
 #include <mxadt/types.h>
 
+/**
+ * This is the declaration of the abstract data type "queue".
+ * The attributes of structure was hidden of the programmer, for avoid
+ * mistakes in programming.
+ */
 typedef struct mxadt_queue mxadt_queue;
 
+/**
+ * Creates a new empty queue.
+ *
+ * @return a new empty queue or NULL on error.
+ */
 mxadt_queue* mxadt_queue_initialize();
+/**
+ * Destroys the queue passed by parameter.
+ *
+ * @param queue the pointer for the queue. if queue pointer is NULL,
+ * nothing happens.
+ */
 void mxadt_queue_finalize(mxadt_queue* queue);
 
+/**
+ * Returns the queue size.
+ *
+ * @param queue the pointer for the queue. If the queue pointer is NULL, a
+ * segmentation fault will occur.
+ *
+ * @return the queue size.
+ */
 inline unsigned int mxadt_queue_size(mxadt_queue* queue);
+/**
+ * Tests whether the queue is empty.
+ *
+ * @param queue the pointer for the queue. If the queue pointer is NULL, a
+ * segmentation fault will occur.
+ *
+ * @return true if the queue is empty, or false otherwise.
+ */
 inline bool mxadt_queue_empty(mxadt_queue* queue);
 
+/**
+ * Returns the first element of queue.
+ *
+ * @param queue the pointer for the queue. If the queue pointer is NULL, a
+ * segmentation fault will occur.
+ *
+ * @return the first element of queue.
+ */
 inline void* mxadt_queue_front(mxadt_queue* queue);
+/**
+ * Returns the last element of queue.
+ *
+ * @param queue the pointer for the queue. If the queue pointer is NULL, a
+ * segmentation fault will occur.
+ *
+ * @return the last element of queue.
+ */
 inline void* mxadt_queue_back(mxadt_queue* queue);
-
+/**
+ * Pushes a new value on the queue.
+ *
+ * @param queue the pointer for the queue. If the queue pointer is NULL, a
+ * segmentation fault will occur.
+ * @param data the data that will be pushed.
+ */
 void mxadt_queue_push(mxadt_queue* queue, void* data);
+/**
+ * Pops the top of the queue.
+ *
+ * @param queue the pointer for the queue. If the queue pointer is NULL, a
+ * segmentation fault will occur.
+ */
 void mxadt_queue_pop(mxadt_queue* queue);
 
 #endif /* _MXADT_QUEUE_H */

@@ -26,13 +26,13 @@
 
 #ifdef HAVE_STDBOOL_H
 #   include <stdbool.h>
-#else
+#else /* not stdbool.h */
 typedef enum
 {
     false,
     true
 } bool;
-#endif
+#endif /* have stdbool.h */
 
 #endif /* _MXADT_TYPES_H */
 

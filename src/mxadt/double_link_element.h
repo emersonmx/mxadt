@@ -22,15 +22,31 @@
 #ifndef _MXADT_DOUBLE_LINK_ELEMENT_H
 #define _MXADT_DOUBLE_LINK_ELEMENT_H
 
+/**
+ * This struct you can use to implement double linked list, circular list,
+ * or another abstract data type that have a double link for another element.
+ */
 typedef struct mxadt_double_link_element mxadt_double_link_element;
 struct mxadt_double_link_element
 {
-    void* data;
-    mxadt_double_link_element* next;
-    mxadt_double_link_element* previous;
+    void* data;                          /**< element data. */
+    mxadt_double_link_element* next;     /**< pointer to the next element. */
+    mxadt_double_link_element* previous; /**< pointer to the previous
+                                              element. */
 };
 
+/**
+ * Creates a new mxadt_double_link_element.
+ *
+ * @return a new mxadt_double_link_element or NULL on error.
+ */
 mxadt_double_link_element* mxadt_double_link_element_initialize();
+/**
+ * Destroys the element passed by parameter.
+ *
+ * @param element the pointer for the element. if element pointer is NULL,
+ * nothing happens.
+ */
 inline void
 mxadt_double_link_element_finalize(mxadt_double_link_element* element);
 

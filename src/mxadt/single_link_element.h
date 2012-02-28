@@ -22,14 +22,29 @@
 #ifndef _MXADT_SINGLE_LINK_ELEMENT_H
 #define _MXADT_SINGLE_LINK_ELEMENT_H
 
+/**
+ * This struct you can use to implement stack, queue, or another abstract
+ * data type that have a single link for another element.
+ */
 typedef struct mxadt_single_link_element mxadt_single_link_element;
 struct mxadt_single_link_element
 {
-    void* data;
-    mxadt_single_link_element* next;
+    void* data;                      /**< element data. */
+    mxadt_single_link_element* next; /**< pointer to the next element. */
 };
 
+/**
+ * Creates a new mxadt_single_link_element.
+ *
+ * @return a new mxadt_single_link_element or NULL on error.
+ */
 mxadt_single_link_element* mxadt_single_link_element_initialize();
+/**
+ * Destroys the element passed by parameter.
+ *
+ * @param element the pointer for the element. if element pointer is NULL,
+ * nothing happens.
+ */
 inline void
 mxadt_single_link_element_finalize(mxadt_single_link_element* element);
 

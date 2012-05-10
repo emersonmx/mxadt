@@ -22,7 +22,7 @@
 #include <stdlib.h>
 #include <mxadt/single_link_element.h>
 
-mxadt_single_link_element* mxadt_single_link_element_initialize()
+mxadt_single_link_element* mxadt_single_link_element_create()
 {
     mxadt_single_link_element* element =
         malloc(sizeof(mxadt_single_link_element));
@@ -33,7 +33,7 @@ mxadt_single_link_element* mxadt_single_link_element_initialize()
     return element;
 }
 
-void mxadt_single_link_element_finalize(mxadt_single_link_element* element)
+void mxadt_single_link_element_destroy(mxadt_single_link_element* element)
 {
     free(element);
 }

@@ -38,7 +38,7 @@ struct mxadt_single_link_element
  *
  * @return a new mxadt_single_link_element or NULL on error.
  */
-mxadt_single_link_element* mxadt_single_link_element_initialize();
+mxadt_single_link_element* mxadt_single_link_element_create();
 /**
  * Destroys the element passed by parameter.
  *
@@ -46,7 +46,7 @@ mxadt_single_link_element* mxadt_single_link_element_initialize();
  * nothing happens.
  */
 inline void
-mxadt_single_link_element_finalize(mxadt_single_link_element* element);
+mxadt_single_link_element_destroy(mxadt_single_link_element* element);
 
 #endif /* _MXADT_SINGLE_LINK_ELEMENT_H */
 

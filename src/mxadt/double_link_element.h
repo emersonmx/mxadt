@@ -40,7 +40,7 @@ struct mxadt_double_link_element
  *
  * @return a new mxadt_double_link_element or NULL on error.
  */
-mxadt_double_link_element* mxadt_double_link_element_initialize();
+mxadt_double_link_element* mxadt_double_link_element_create();
 /**
  * Destroys the element passed by parameter.
  *
@@ -48,7 +48,7 @@ mxadt_double_link_element* mxadt_double_link_element_initialize();
  * nothing happens.
  */
 inline void
-mxadt_double_link_element_finalize(mxadt_double_link_element* element);
+mxadt_double_link_element_destroy(mxadt_double_link_element* element);
 
 #endif /* _MXADT_DOUBLE_LINK_ELEMENT_H */
 

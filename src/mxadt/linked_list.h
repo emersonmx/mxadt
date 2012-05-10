@@ -37,7 +37,7 @@ typedef struct mxadt_linked_list mxadt_linked_list;
  *
  * @return a new empty linked list or NULL on error.
  */
-mxadt_linked_list* mxadt_linked_list_initialize();
+mxadt_linked_list* mxadt_linked_list_create();
 /**
  * Returns the linked list size.
  *
@@ -46,7 +46,7 @@ mxadt_linked_list* mxadt_linked_list_initialize();
  *
  * @return the linked list size.
  */
-void mxadt_linked_list_finalize(mxadt_linked_list* linked_list);
+void mxadt_linked_list_destroy(mxadt_linked_list* linked_list);
 
 /**
  * Returns the linked list size.

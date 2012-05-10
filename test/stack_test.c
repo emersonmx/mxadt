@@ -24,7 +24,7 @@
 
 int main()
 {
-    mxadt_stack* s = mxadt_stack_initialize();
+    mxadt_stack* s = mxadt_stack_create();
 
     mxadt_stack_push(s, (void*) 10);
     mxadt_stack_push(s, (void*) 15);
@@ -45,7 +45,7 @@ int main()
 
     printf("\nStack size: %u\n", mxadt_stack_size(s));
 
-    mxadt_stack_finalize(s);
+    mxadt_stack_destroy(s);
     return 0;
 }
 

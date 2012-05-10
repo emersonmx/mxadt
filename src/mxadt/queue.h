@@ -36,14 +36,14 @@ typedef struct mxadt_queue mxadt_queue;
  *
  * @return a new empty queue or NULL on error.
  */
-mxadt_queue* mxadt_queue_initialize();
+mxadt_queue* mxadt_queue_create();
 /**
  * Destroys the queue passed by parameter.
  *
  * @param queue the pointer for the queue. if queue pointer is NULL,
  * nothing happens.
  */
-void mxadt_queue_finalize(mxadt_queue* queue);
+void mxadt_queue_destroy(mxadt_queue* queue);
 
 /**
  * Returns the queue size.

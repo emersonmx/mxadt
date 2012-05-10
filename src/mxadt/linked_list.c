@@ -29,7 +29,7 @@ struct mxadt_linked_list
     mxadt_double_link_element* back;
 };
 
-mxadt_linked_list* mxadt_linked_list_initialize()
+mxadt_linked_list* mxadt_linked_list_create()
 {
     mxadt_linked_list* linked_list = malloc(sizeof(mxadt_linked_list));
 
@@ -42,7 +42,7 @@ mxadt_linked_list* mxadt_linked_list_initialize()
     return linked_list;
 }
 
-void mxadt_linked_list_finalize(mxadt_linked_list* linked_list)
+void mxadt_linked_list_destroy(mxadt_linked_list* linked_list)
 {
     while(!mxadt_linked_list_empty(linked_list))
     {
@@ -86,8 +86,7 @@ mxadt_linked_list_back_element(mxadt_linked_list* linked_list)
 
 void mxadt_linked_list_push_front(mxadt_linked_list* linked_list, void* data)
 {
-    mxadt_double_link_element* new_element =
-        mxadt_double_link_element_initialize();
+    mxadt_double_link_element* new_element = mxadt_double_link_element_create();
 
     if (new_element != NULL)
     {
@@ -118,14 +117,13 @@ void mxadt_linked_list_pop_front(mxadt_linked_list* linked_list)
         linked_list->front = front->next;
     }
 
-    mxadt_double_link_element_finalize(front);
+    mxadt_double_link_element_destroy(front);
     linked_list->size--;
 }
 
 void mxadt_linked_list_push_back(mxadt_linked_list* linked_list, void* data)
 {
-    mxadt_double_link_element* new_element =
-        mxadt_double_link_element_initialize();
+    mxadt_double_link_element* new_element = mxadt_double_link_element_create();
 
     if (new_element != NULL)
     {
@@ -156,7 +154,7 @@ void mxadt_linked_list_pop_back(mxadt_linked_list* linked_list)
         linked_list->back = back->previous;
     }
 
-    mxadt_double_link_element_finalize(back);
+    mxadt_double_link_element_destroy(back);
     linked_list->size--;
 }
 

@@ -29,7 +29,7 @@ struct mxadt_stack
     mxadt_single_link_element* top;
 };
 
-mxadt_stack* mxadt_stack_initialize()
+mxadt_stack* mxadt_stack_create()
 {
     mxadt_stack* stack = malloc(sizeof(mxadt_stack));
 
@@ -42,7 +42,7 @@ mxadt_stack* mxadt_stack_initialize()
     return stack;
 }
 
-void mxadt_stack_finalize(mxadt_stack* stack)
+void mxadt_stack_destroy(mxadt_stack* stack)
 {
     while (!mxadt_stack_empty(stack))
     {
@@ -70,8 +70,7 @@ void* mxadt_stack_top(mxadt_stack* stack)
 void mxadt_stack_push(mxadt_stack* stack, void* data)
 {
     mxadt_single_link_element* top = stack->top;
-    mxadt_single_link_element* new_element =
-        mxadt_single_link_element_initialize();
+    mxadt_single_link_element* new_element = mxadt_single_link_element_create();
 
     if (new_element != NULL)
     {
@@ -86,7 +85,7 @@ void mxadt_stack_pop(mxadt_stack* stack)
 {
     mxadt_single_link_element* top = stack->top;
     stack->top = top->next;
-    mxadt_single_link_element_finalize(top);
+    mxadt_single_link_element_destroy(top);
     stack->size--;
 }
 

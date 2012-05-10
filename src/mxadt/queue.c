@@ -30,7 +30,7 @@ struct mxadt_queue
     mxadt_single_link_element* back;
 };
 
-mxadt_queue* mxadt_queue_initialize()
+mxadt_queue* mxadt_queue_create()
 {
     mxadt_queue* queue = malloc(sizeof(mxadt_queue));
 
@@ -43,7 +43,7 @@ mxadt_queue* mxadt_queue_initialize()
     return queue;
 }
 
-void mxadt_queue_finalize(mxadt_queue* queue)
+void mxadt_queue_destroy(mxadt_queue* queue)
 {
     while (!mxadt_queue_empty(queue))
     {
@@ -75,8 +75,7 @@ void* mxadt_queue_back(mxadt_queue* queue)
 
 void mxadt_queue_push(mxadt_queue* queue, void* data)
 {
-    mxadt_single_link_element* new_element =
-        mxadt_single_link_element_initialize();
+    mxadt_single_link_element* new_element = mxadt_single_link_element_create();
 
     if (new_element != NULL)
     {
@@ -107,7 +106,7 @@ void mxadt_queue_pop(mxadt_queue* queue)
         queue->front = front->next;
     }
 
-    mxadt_single_link_element_finalize(front);
+    mxadt_single_link_element_destroy(front);
     queue->size--;
 }
 

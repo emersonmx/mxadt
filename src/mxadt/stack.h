@@ -36,14 +36,14 @@ typedef struct mxadt_stack mxadt_stack;
  *
  * @return a new empty stack or NULL on error.
  */
-mxadt_stack* mxadt_stack_initialize();
+mxadt_stack* mxadt_stack_create();
 /**
  * Destroys the stack passed by parameter.
  *
  * @param stack the pointer for the stack. if stack pointer is NULL,
  * nothing happens.
  */
-void mxadt_stack_finalize(mxadt_stack* stack);
+void mxadt_stack_destroy(mxadt_stack* stack);
 
 /**
  * Returns the stack size.

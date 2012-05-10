@@ -24,7 +24,7 @@
 
 int main()
 {
-    mxadt_queue* q = mxadt_queue_initialize();
+    mxadt_queue* q = mxadt_queue_create();
 
     mxadt_queue_push(q, (void*) 10);
     mxadt_queue_push(q, (void*) 15);
@@ -47,7 +47,7 @@ int main()
 
     printf("Queue size: %u\n", mxadt_queue_size(q));
 
-    mxadt_queue_finalize(q);
+    mxadt_queue_destroy(q);
 
     return 0;
 }

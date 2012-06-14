@@ -20,7 +20,8 @@
 */
 
 #include <stdlib.h>
-#include <mxadt/linked_list.h>
+
+#include "mxadt/linked_list.h"
 
 struct mxadt_linked_list
 {

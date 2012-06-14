@@ -20,8 +20,9 @@
 */
 
 #include <stdlib.h>
-#include <mxadt/stack.h>
-#include <mxadt/single_link_element.h>
+
+#include "mxadt/stack.h"
+#include "mxadt/single_link_element.h"
 
 struct mxadt_stack
 {

@@ -22,17 +22,11 @@
 #ifndef _MXADT_TYPES_H
 #define _MXADT_TYPES_H
 
-#include <mxadt/config.h>
-
-#ifdef HAVE_STDBOOL_H
-#   include <stdbool.h>
-#else /* not stdbool.h */
 typedef enum
 {
     false,
     true
 } bool;
-#endif /* have stdbool.h */
 
 #endif /* _MXADT_TYPES_H */
 

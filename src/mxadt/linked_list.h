@@ -22,8 +22,8 @@
 #ifndef _MXADT_LINKED_LIST_H
 #define _MXADT_LINKED_LIST_H
 
-#include <mxadt/types.h>
-#include <mxadt/double_link_element.h>
+#include "mxadt/types.h"
+#include "mxadt/double_link_element.h"
 
 /**
  * This is the declaration of the abstract data type "linked list".

@@ -22,7 +22,7 @@
 #ifndef _MXADT_QUEUE_H
 #define _MXADT_QUEUE_H
 
-#include <mxadt/types.h>
+#include "mxadt/types.h"
 
 /**
  * This is the declaration of the abstract data type "queue".

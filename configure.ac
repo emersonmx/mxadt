@@ -8,7 +8,6 @@ AC_LIBTOOL_DLOPEN
 AC_PROG_LIBTOOL
 # Checks for libraries.
 # Checks for header files.
-AC_CHECK_HEADERS([stdbool.h])
 # Checks for typedefs, structures and compiler characteristics.
 # Checks for library functions.
 

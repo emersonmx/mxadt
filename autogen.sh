@@ -1,5 +1,6 @@
 #! /bin/sh
 
+mkdir m4
 set -e
-autoreconf -i --force
+autoreconf --install --force
 rm -rf autom4te.cache

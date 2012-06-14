@@ -2,5 +2,13 @@
 *.a
 *.swp
 *.tar.gz
+*.in
 *.in~
-test/stack_test
+*.m4
+config.guess
+config.sub
+configure
+depcomp
+install-sh
+ltmain.sh
+missing

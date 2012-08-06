@@ -1,0 +1,28 @@
+#! /bin/bash
+
+usage()
+{
+    echo Usage: $0 "<type> <input_file>"
+    return
+}
+
+if test $# -ne 2
+then
+    usage
+else
+    input_type=$1
+    input_file=$2
+    output_file=$input_type'_'${2/.*\//}
+    temp_file='tmp_'$output_file
+
+    cp -f $input_file $output_file
+
+    sed 's/mxadt_/mxadt_'$input_type'_/g' $output_file > $temp_file
+    mv $temp_file $output_file
+
+    sed 's/_MXADT_/_MXADT_'$(echo $input_type | tr a-z A-Z)'_/g' $output_file > $temp_file
+    mv $temp_file $output_file
+
+    sed 's/void\*/'$input_type'/g' $output_file > $temp_file
+    mv $temp_file $output_file
+fi

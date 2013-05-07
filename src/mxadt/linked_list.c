@@ -23,7 +23,7 @@
 
 struct mxadt_linked_list
 {
-    unsigned int size;
+    size_t size;
     mxadt_double_link_element* front;
     mxadt_double_link_element* back;
 };
@@ -51,7 +51,7 @@ void mxadt_linked_list_destroy(mxadt_linked_list* linked_list)
     free(linked_list);
 }
 
-unsigned int mxadt_linked_list_size(mxadt_linked_list* linked_list)
+size_t mxadt_linked_list_size(mxadt_linked_list* linked_list)
 {
     return linked_list->size;
 }

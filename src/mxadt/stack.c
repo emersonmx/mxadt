@@ -24,7 +24,7 @@
 
 struct mxadt_stack
 {
-    unsigned int size;
+    size_t size;
     mxadt_single_link_element* top;
 };
 
@@ -51,7 +51,7 @@ void mxadt_stack_destroy(mxadt_stack* stack)
     free(stack);
 }
 
-unsigned int mxadt_stack_size(mxadt_stack* stack)
+size_t mxadt_stack_size(mxadt_stack* stack)
 {
     return stack->size;
 }

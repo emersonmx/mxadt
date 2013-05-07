@@ -11,6 +11,9 @@
 *.la
 *.a
 
+# Binaries
+test/*_test
+
 # Vim files
 *.swp
 .vimsession
@@ -29,7 +32,6 @@ depcomp
 install-sh
 ltmain.sh
 missing
-*.h.in
 autom4te.cache/
 configure
 aclocal.m4
@@ -38,10 +40,10 @@ build-aux/
 config.log
 config.status
 libtool
-src/mxgame/config.h
-src/mxgame/stamp-h1
-src/mxgame/config.h.in
-src/mxgame/config.h.in~
+src/mxadt/config.h
+src/mxadt/stamp-h1
+*.h.in
+*.h.in~
 *.deps/
 *.libs/
 Makefile

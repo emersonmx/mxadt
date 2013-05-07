@@ -55,7 +55,7 @@ void mxadt_linked_list_destroy(mxadt_linked_list* linked_list);
  *
  * @return The linked list size.
  */
-inline unsigned int mxadt_linked_list_size(mxadt_linked_list* linked_list);
+inline size_t mxadt_linked_list_size(mxadt_linked_list* linked_list);
 
 /**
  * Tests whether the linked list is empty.

@@ -52,7 +52,7 @@ void mxadt_stack_destroy(mxadt_stack* stack);
  *
  * @return The stack size.
  */
-inline unsigned int mxadt_stack_size(mxadt_stack* stack);
+inline size_t mxadt_stack_size(mxadt_stack* stack);
 
 /**
  * Tests whether the stack is empty.

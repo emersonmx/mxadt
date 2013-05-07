@@ -52,7 +52,7 @@ void mxadt_queue_destroy(mxadt_queue* queue);
  *
  * @return The queue size.
  */
-inline unsigned int mxadt_queue_size(mxadt_queue* queue);
+inline size_t mxadt_queue_size(mxadt_queue* queue);
 
 /**
  * Tests whether the queue is empty.

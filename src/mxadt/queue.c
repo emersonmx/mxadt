@@ -24,7 +24,7 @@
 
 struct mxadt_queue
 {
-    unsigned int size;
+    size_t size;
     mxadt_single_link_element* front;
     mxadt_single_link_element* back;
 };
@@ -52,7 +52,7 @@ void mxadt_queue_destroy(mxadt_queue* queue)
     free(queue);
 }
 
-unsigned int mxadt_queue_size(mxadt_queue* queue)
+size_t mxadt_queue_size(mxadt_queue* queue)
 {
     return queue->size;
 }

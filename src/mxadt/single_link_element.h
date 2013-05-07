@@ -19,8 +19,8 @@
   along with mxadt.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _MXADT_SINGLE_LINK_ELEMENT_H
-#define _MXADT_SINGLE_LINK_ELEMENT_H
+#ifndef MXADT_SINGLE_LINK_ELEMENT_H_
+#define MXADT_SINGLE_LINK_ELEMENT_H_
 
 /**
  * This struct you can use to implement stack, queue, or another abstract
@@ -39,6 +39,7 @@ struct mxadt_single_link_element
  * @return a new mxadt_single_link_element or NULL on error.
  */
 mxadt_single_link_element* mxadt_single_link_element_create();
+
 /**
  * Destroys the element passed by parameter.
  *
@@ -48,5 +49,5 @@ mxadt_single_link_element* mxadt_single_link_element_create();
 inline void
 mxadt_single_link_element_destroy(mxadt_single_link_element* element);
 
-#endif /* _MXADT_SINGLE_LINK_ELEMENT_H */
+#endif /* MXADT_SINGLE_LINK_ELEMENT_H_ */
 

@@ -19,8 +19,8 @@
   along with mxadt.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _MXADT_STACK_H
-#define _MXADT_STACK_H
+#ifndef MXADT_STACK_H_
+#define MXADT_STACK_H_
 
 #include "mxadt/types.h"
 
@@ -37,6 +37,7 @@ typedef struct mxadt_stack mxadt_stack;
  * @return a new empty stack or NULL on error.
  */
 mxadt_stack* mxadt_stack_create();
+
 /**
  * Destroys the stack passed by parameter.
  *
@@ -54,6 +55,7 @@ void mxadt_stack_destroy(mxadt_stack* stack);
  * @return the stack size.
  */
 inline unsigned int mxadt_stack_size(mxadt_stack* stack);
+
 /**
  * Tests whether the stack is empty.
  *
@@ -63,6 +65,7 @@ inline unsigned int mxadt_stack_size(mxadt_stack* stack);
  * @return true if the stack is empty, or false otherwise.
  */
 inline bool mxadt_stack_empty(mxadt_stack* stack);
+
 /**
  * Returns the stack top.
  *
@@ -72,6 +75,7 @@ inline bool mxadt_stack_empty(mxadt_stack* stack);
  * @return the stack top.
  */
 inline void* mxadt_stack_top(mxadt_stack* stack);
+
 /**
  * Pushes a new value on the stack.
  *
@@ -80,6 +84,7 @@ inline void* mxadt_stack_top(mxadt_stack* stack);
  * @param data the data that will be pushed.
  */
 void mxadt_stack_push(mxadt_stack* stack, void* data);
+
 /**
  * Pops the top of the stack.
  *
@@ -88,5 +93,5 @@ void mxadt_stack_push(mxadt_stack* stack, void* data);
  */
 void mxadt_stack_pop(mxadt_stack* stack);
 
-#endif /* _MXADT_STACK_H */
+#endif /* MXADT_STACK_H_ */
 

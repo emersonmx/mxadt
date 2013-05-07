@@ -19,8 +19,8 @@
   along with mxadt.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _MXADT_LINKED_LIST_H
-#define _MXADT_LINKED_LIST_H
+#ifndef MXADT_LINKED_LIST_H_
+#define MXADT_LINKED_LIST_H_
 
 #include "mxadt/types.h"
 #include "mxadt/double_link_element.h"
@@ -38,6 +38,7 @@ typedef struct mxadt_linked_list mxadt_linked_list;
  * @return a new empty linked list or NULL on error.
  */
 mxadt_linked_list* mxadt_linked_list_create();
+
 /**
  * Returns the linked list size.
  *
@@ -57,6 +58,7 @@ void mxadt_linked_list_destroy(mxadt_linked_list* linked_list);
  * @return the linked list size.
  */
 inline unsigned int mxadt_linked_list_size(mxadt_linked_list* linked_list);
+
 /**
  * Tests whether the linked list is empty.
  *
@@ -76,6 +78,7 @@ inline bool mxadt_linked_list_empty(mxadt_linked_list* linked_list);
  * @return the last element of linked list.
  */
 inline void* mxadt_linked_list_front(mxadt_linked_list* linked_list);
+
 /**
  * Returns the last element of linked list.
  *
@@ -85,6 +88,7 @@ inline void* mxadt_linked_list_front(mxadt_linked_list* linked_list);
  * @return the last element of linked list.
  */
 inline void* mxadt_linked_list_back(mxadt_linked_list* linked_list);
+
 /**
  * Returns an iterator for the beggining of linked list
  * (mxadt_double_link_element).
@@ -96,6 +100,7 @@ inline void* mxadt_linked_list_back(mxadt_linked_list* linked_list);
  */
 inline mxadt_double_link_element*
 mxadt_linked_list_front_element(mxadt_linked_list* linked_list);
+
 /**
  * Returns an iterator for the ending of linked list
  * (mxadt_double_link_element).
@@ -127,6 +132,7 @@ mxadt_linked_list_back_element(mxadt_linked_list* linked_list);
  * @param data the data that will be pushed.
  */
 void mxadt_linked_list_push_front(mxadt_linked_list* linked_list, void* data);
+
 /**
  * Pops the front of the linked list.
  *
@@ -144,6 +150,7 @@ void mxadt_linked_list_push_front(mxadt_linked_list* linked_list, void* data);
  * pointer is NULL, a segmentation fault will occur.
  */
 void mxadt_linked_list_pop_front(mxadt_linked_list* linked_list);
+
 /**
  * Pushes a new value in the back of linked list.
  *
@@ -163,6 +170,7 @@ void mxadt_linked_list_pop_front(mxadt_linked_list* linked_list);
  * @param data the data that will be pushed.
  */
 void mxadt_linked_list_push_back(mxadt_linked_list* linked_list, void* data);
+
 /**
  * Pops the back of the linked list.
  *
@@ -181,5 +189,5 @@ void mxadt_linked_list_push_back(mxadt_linked_list* linked_list, void* data);
  */
 void mxadt_linked_list_pop_back(mxadt_linked_list* linked_list);
 
-#endif /* _MXADT_LINKED_LIST_H */
+#endif /* MXADT_LINKED_LIST_H_ */
 

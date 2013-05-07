@@ -1,14 +1,50 @@
+# Compiled Object files
+*.slo
+*.lo
 *.o
+
+# Compiled Dynamic libraries
+*.so
+
+# Compiled Static libraries
+*.lai
+*.la
 *.a
+
+# Vim files
 *.swp
+.vimsession
+tags
+
+# Git files
+*.orig
+
+# Packages
 *.tar.gz
-*.in
-*.in~
-*.m4
-config.guess
+
+# Project files
+bin/
 config.sub
-configure
 depcomp
 install-sh
 ltmain.sh
 missing
+*.h.in
+autom4te.cache/
+configure
+aclocal.m4
+m4/
+build-aux/
+config.log
+config.status
+libtool
+src/mxgame/config.h
+src/mxgame/stamp-h1
+src/mxgame/config.h.in
+src/mxgame/config.h.in~
+*.deps/
+*.libs/
+Makefile
+src/Makefile
+Makefile.in*
+config.guess

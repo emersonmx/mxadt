@@ -19,8 +19,8 @@
   along with mxadt.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _MXADT_DOUBLE_LINK_ELEMENT_H
-#define _MXADT_DOUBLE_LINK_ELEMENT_H
+#ifndef MXADT_DOUBLE_LINK_ELEMENT_H_
+#define MXADT_DOUBLE_LINK_ELEMENT_H_
 
 /**
  * This struct you can use to implement double linked list, circular list,
@@ -41,6 +41,7 @@ struct mxadt_double_link_element
  * @return a new mxadt_double_link_element or NULL on error.
  */
 mxadt_double_link_element* mxadt_double_link_element_create();
+
 /**
  * Destroys the element passed by parameter.
  *
@@ -50,5 +51,5 @@ mxadt_double_link_element* mxadt_double_link_element_create();
 inline void
 mxadt_double_link_element_destroy(mxadt_double_link_element* element);
 
-#endif /* _MXADT_DOUBLE_LINK_ELEMENT_H */
+#endif /* MXADT_DOUBLE_LINK_ELEMENT_H_ */
 

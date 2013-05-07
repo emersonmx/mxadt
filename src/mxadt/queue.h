@@ -19,8 +19,8 @@
   along with mxadt.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _MXADT_QUEUE_H
-#define _MXADT_QUEUE_H
+#ifndef MXADT_QUEUE_H_
+#define MXADT_QUEUE_H_
 
 #include "mxadt/types.h"
 
@@ -37,6 +37,7 @@ typedef struct mxadt_queue mxadt_queue;
  * @return a new empty queue or NULL on error.
  */
 mxadt_queue* mxadt_queue_create();
+
 /**
  * Destroys the queue passed by parameter.
  *
@@ -54,6 +55,7 @@ void mxadt_queue_destroy(mxadt_queue* queue);
  * @return the queue size.
  */
 inline unsigned int mxadt_queue_size(mxadt_queue* queue);
+
 /**
  * Tests whether the queue is empty.
  *
@@ -73,6 +75,7 @@ inline bool mxadt_queue_empty(mxadt_queue* queue);
  * @return the first element of queue.
  */
 inline void* mxadt_queue_front(mxadt_queue* queue);
+
 /**
  * Returns the last element of queue.
  *
@@ -82,6 +85,7 @@ inline void* mxadt_queue_front(mxadt_queue* queue);
  * @return the last element of queue.
  */
 inline void* mxadt_queue_back(mxadt_queue* queue);
+
 /**
  * Pushes a new value on the queue.
  *
@@ -90,6 +94,7 @@ inline void* mxadt_queue_back(mxadt_queue* queue);
  * @param data the data that will be pushed.
  */
 void mxadt_queue_push(mxadt_queue* queue, void* data);
+
 /**
  * Pops the top of the queue.
  *
@@ -98,5 +103,5 @@ void mxadt_queue_push(mxadt_queue* queue, void* data);
  */
 void mxadt_queue_pop(mxadt_queue* queue);
 
-#endif /* _MXADT_QUEUE_H */
+#endif /* MXADT_QUEUE_H_ */
 

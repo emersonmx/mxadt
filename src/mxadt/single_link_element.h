@@ -27,22 +27,21 @@
 typedef struct mxadt_single_link_element mxadt_single_link_element;
 struct mxadt_single_link_element
 {
-    void* data;                      /**< element data. */
-    mxadt_single_link_element* next; /**< pointer to the next element. */
+    void* data;                      /**< Element data. */
+    mxadt_single_link_element* next; /**< Pointer to the next element. */
 };
 
 /**
  * Creates a new mxadt_single_link_element.
  *
- * @return a new mxadt_single_link_element or NULL on error.
+ * @return A new mxadt_single_link_element or NULL on error.
  */
 mxadt_single_link_element* mxadt_single_link_element_create();
 
 /**
  * Destroys the element passed by parameter.
  *
- * @param element the pointer for the element. if element pointer is NULL,
- * nothing happens.
+ * @param element The pointer for the element.
  */
 inline void
 mxadt_single_link_element_destroy(mxadt_single_link_element* element);

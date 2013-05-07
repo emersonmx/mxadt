@@ -48,3 +48,6 @@ Makefile
 src/Makefile
 Makefile.in*
 config.guess
+doc/html/
+doc/man/
+doc/latex/

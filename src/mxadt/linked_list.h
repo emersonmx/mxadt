@@ -33,34 +33,34 @@ typedef struct mxadt_linked_list mxadt_linked_list;
 /**
  * Creates a new empty linked list.
  *
- * @return a new empty linked list or NULL on error.
+ * @return A new empty linked list or NULL on error.
  */
 mxadt_linked_list* mxadt_linked_list_create();
 
 /**
  * Returns the linked list size.
  *
- * @param linked list the pointer for the linked list. If the linked list
+ * @param linked_list The pointer for the linked list. If the linked list
  * pointer is NULL, a segmentation fault will occur.
  *
- * @return the linked list size.
+ * @return The linked list size.
  */
 void mxadt_linked_list_destroy(mxadt_linked_list* linked_list);
 
 /**
  * Returns the linked list size.
  *
- * @param linked list the pointer for the linked list. If the linked list
+ * @param linked_list The pointer for the linked list. If the linked list
  * pointer is NULL, a segmentation fault will occur.
  *
- * @return the linked list size.
+ * @return The linked list size.
  */
 inline unsigned int mxadt_linked_list_size(mxadt_linked_list* linked_list);
 
 /**
  * Tests whether the linked list is empty.
  *
- * @param linked list the pointer for the linked list. If the linked list
+ * @param linked_list The pointer for the linked list. If the linked list
  * pointer is NULL, a segmentation fault will occur.
  *
  * @return true if the linked list is empty, or false otherwise.
@@ -70,20 +70,20 @@ inline bool mxadt_linked_list_empty(mxadt_linked_list* linked_list);
 /**
  * Returns the last element of linked list.
  *
- * @param linked list the pointer for the linked list. If the linked list
+ * @param linked_list The pointer for the linked list. If the linked list
  * pointer is NULL, a segmentation fault will occur.
  *
- * @return the last element of linked list.
+ * @return The last element of linked list.
  */
 inline void* mxadt_linked_list_front(mxadt_linked_list* linked_list);
 
 /**
  * Returns the last element of linked list.
  *
- * @param linked list the pointer for the linked list. If the linked list
+ * @param linked_list The pointer for the linked list. If the linked list
  * pointer is NULL, a segmentation fault will occur.
  *
- * @return the last element of linked list.
+ * @return The last element of linked list.
  */
 inline void* mxadt_linked_list_back(mxadt_linked_list* linked_list);
 
@@ -91,10 +91,10 @@ inline void* mxadt_linked_list_back(mxadt_linked_list* linked_list);
  * Returns an iterator for the beggining of linked list
  * (mxadt_double_link_element).
  *
- * @param linked list the pointer for the linked list. If the linked list
+ * @param linked_list The pointer for the linked list. If the linked list
  * pointer is NULL, a segmentation fault will occur.
  *
- * @return an iterator for the beggining of linked list.
+ * @return An iterator for the beggining of linked list.
  */
 inline mxadt_double_link_element*
 mxadt_linked_list_front_element(mxadt_linked_list* linked_list);
@@ -103,10 +103,10 @@ mxadt_linked_list_front_element(mxadt_linked_list* linked_list);
  * Returns an iterator for the ending of linked list
  * (mxadt_double_link_element).
  *
- * @param linked list the pointer for the linked list. If the linked list
+ * @param linked_list The pointer for the linked list. If the linked list
  * pointer is NULL, a segmentation fault will occur.
  *
- * @return an iterator for the ending of linked list.
+ * @return An iterator for the ending of linked list.
  */
 inline mxadt_double_link_element*
 mxadt_linked_list_back_element(mxadt_linked_list* linked_list);
@@ -117,17 +117,18 @@ mxadt_linked_list_back_element(mxadt_linked_list* linked_list);
  * The new element will be the first element, that will point for the old first
  * element.
  *
- * FRONT
- *   |
- *   V
- *  ___      ___
- * |   |<---|OLD|
- * |NEW|    |1st|---> ...
- * |___|--->|___|
+ * \verbatim
+FRONT
+  |
+  V
+ ___      ___
+|   |<---|OLD|
+|NEW|    |1st|---> ...
+|___|--->|___|\endverbatim
  *
- * @param linked list the pointer for the linked list. If the linked list
+ * @param linked_list The pointer for the linked list. If the linked list
  * pointer is NULL, a segmentation fault will occur.
- * @param data the data that will be pushed.
+ * @param data The data that will be pushed.
  */
 void mxadt_linked_list_push_front(mxadt_linked_list* linked_list, void* data);
 
@@ -136,15 +137,16 @@ void mxadt_linked_list_push_front(mxadt_linked_list* linked_list, void* data);
  *
  * The first element will be the old first element.
  *
- * DELETE   FRONT
- *   |        |
- *   V        V
- *  ___      ___
- * |   |    |OLD|
- * |NEW|    |1st|---> ...
- * |___|    |___|
+ * \verbatim
+DELETE   FRONT
+  |        |
+  V        V
+ ___      ___
+|   |    |OLD|
+|NEW|    |1st|---> ...
+|___|    |___|\endverbatim
  *
- * @param linked list the pointer for the linked list. If the linked list
+ * @param linked_list The pointer for the linked list. If the linked list
  * pointer is NULL, a segmentation fault will occur.
  */
 void mxadt_linked_list_pop_front(mxadt_linked_list* linked_list);
@@ -155,17 +157,18 @@ void mxadt_linked_list_pop_front(mxadt_linked_list* linked_list);
  * The new element will be the last element, that will be pointed by the old
  * last element.
  *
- *                  BACK
- *                    |
- *                    V
- *         ____      ___
- *        |OLD |<---|   |
- * ...<---|LAST|    |NEW|
- *        |____|--->|___|
+ * \verbatim
+                 BACK
+                   |
+                   V
+        ____      ___
+       |OLD |<---|   |
+...<---|LAST|    |NEW|
+       |____|--->|___|\endverbatim
  *
- * @param linked list the pointer for the linked list. If the linked list
+ * @param linked_list The pointer for the linked list. If the linked list
  * pointer is NULL, a segmentation fault will occur.
- * @param data the data that will be pushed.
+ * @param data The data that will be pushed.
  */
 void mxadt_linked_list_push_back(mxadt_linked_list* linked_list, void* data);
 
@@ -174,15 +177,16 @@ void mxadt_linked_list_push_back(mxadt_linked_list* linked_list, void* data);
  *
  * The last element will be the old last element.
  *
- *         BACK    DELETE
- *          |         |
- *          V         V
- *         ____      ___
- *        |OLD |    |   |
- * ...<---|LAST|    |NEW|
- *        |____|    |___|
+ * \verbatim
+        BACK    DELETE
+         |         |
+         V         V
+        ____      ___
+       |OLD |    |   |
+...<---|LAST|    |NEW|
+       |____|    |___|\endverbatim
  *
- * @param linked list the pointer for the linked list. If the linked list
+ * @param linked_list The pointer for the linked list. If the linked list
  * pointer is NULL, a segmentation fault will occur.
  */
 void mxadt_linked_list_pop_back(mxadt_linked_list* linked_list);

@@ -32,32 +32,32 @@ typedef struct mxadt_stack mxadt_stack;
 /**
  * Creates a new empty stack.
  *
- * @return a new empty stack or NULL on error.
+ * @return A new empty stack or NULL on error.
  */
 mxadt_stack* mxadt_stack_create();
 
 /**
  * Destroys the stack passed by parameter.
  *
- * @param stack the pointer for the stack. if stack pointer is NULL,
- * nothing happens.
+ * @param stack The pointer for the stack. If the stack pointer is NULL, a
+ * segmentation fault with occur.
  */
 void mxadt_stack_destroy(mxadt_stack* stack);
 
 /**
  * Returns the stack size.
  *
- * @param stack the pointer for the stack. If the stack pointer is NULL, a
+ * @param stack The pointer for the stack. If the stack pointer is NULL, a
  * segmentation fault will occur.
  *
- * @return the stack size.
+ * @return The stack size.
  */
 inline unsigned int mxadt_stack_size(mxadt_stack* stack);
 
 /**
  * Tests whether the stack is empty.
  *
- * @param stack the pointer for the stack. If the stack pointer is NULL, a
+ * @param stack The pointer for the stack. If the stack pointer is NULL, a
  * segmentation fault will occur.
  *
  * @return true if the stack is empty, or false otherwise.
@@ -67,26 +67,26 @@ inline bool mxadt_stack_empty(mxadt_stack* stack);
 /**
  * Returns the stack top.
  *
- * @param stack the pointer for the stack. If the stack pointer is NULL, a
+ * @param stack The pointer for the stack. If the stack pointer is NULL, a
  * segmentation fault will occur.
  *
- * @return the stack top.
+ * @return The stack top.
  */
 inline void* mxadt_stack_top(mxadt_stack* stack);
 
 /**
  * Pushes a new value on the stack.
  *
- * @param stack the pointer for the stack. If the stack pointer is NULL, a
+ * @param stack The pointer for the stack. If the stack pointer is NULL, a
  * segmentation fault will occur.
- * @param data the data that will be pushed.
+ * @param data The data that will be pushed.
  */
 void mxadt_stack_push(mxadt_stack* stack, void* data);
 
 /**
  * Pops the top of the stack.
  *
- * @param stack the pointer for the stack. If the stack pointer is NULL, a
+ * @param stack The pointer for the stack. If the stack pointer is NULL, a
  * segmentation fault will occur.
  */
 void mxadt_stack_pop(mxadt_stack* stack);

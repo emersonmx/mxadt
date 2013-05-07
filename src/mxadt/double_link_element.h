@@ -1,7 +1,5 @@
 /*
-  Copyright 2011, 2012 Emerson Max de Medeiros Silva
-
-  Author: Emerson Max de Medeiros Silva <emersonmx@gmail.com>
+  Copyright (C) 2011-2013 Emerson Max de Medeiros Silva
 
   This file is part of mxadt.
 

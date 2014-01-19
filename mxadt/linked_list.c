@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2011-2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2011-2014 Emerson Max de Medeiros Silva
 
   This file is part of mxadt.
 
@@ -19,14 +19,7 @@
 
 #include <stdlib.h>
 
-#include "mxadt/linked_list.h"
-
-struct mxadt_linked_list
-{
-    size_t size;
-    mxadt_double_link_element* front;
-    mxadt_double_link_element* back;
-};
+#include <mxadt/linked_list.h>
 
 mxadt_linked_list* mxadt_linked_list_create()
 {
@@ -51,36 +44,9 @@ void mxadt_linked_list_destroy(mxadt_linked_list* linked_list)
     free(linked_list);
 }
 
-size_t mxadt_linked_list_size(mxadt_linked_list* linked_list)
-{
-    return linked_list->size;
-}
-
 bool mxadt_linked_list_empty(mxadt_linked_list* linked_list)
 {
     return (linked_list->front == NULL) && (linked_list->back == NULL);
-}
-
-void* mxadt_linked_list_front(mxadt_linked_list* linked_list)
-{
-    return linked_list->front->data;
-}
-
-void* mxadt_linked_list_back(mxadt_linked_list* linked_list)
-{
-    return linked_list->back->data;
-}
-
-mxadt_double_link_element*
-mxadt_linked_list_front_element(mxadt_linked_list* linked_list)
-{
-    return linked_list->front;
-}
-
-mxadt_double_link_element*
-mxadt_linked_list_back_element(mxadt_linked_list* linked_list)
-{
-    return linked_list->back;
 }
 
 void mxadt_linked_list_push_front(mxadt_linked_list* linked_list, void* data)

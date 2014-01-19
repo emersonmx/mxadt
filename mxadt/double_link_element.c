@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2011-2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2011-2014 Emerson Max de Medeiros Silva
 
   This file is part of mxadt.
 
@@ -19,7 +19,7 @@
 
 #include <stdlib.h>
 
-#include "mxadt/double_link_element.h"
+#include <mxadt/double_link_element.h>
 
 mxadt_double_link_element* mxadt_double_link_element_create()
 {

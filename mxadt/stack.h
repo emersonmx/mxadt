@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2011-2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2011-2014 Emerson Max de Medeiros Silva
 
   This file is part of mxadt.
 
@@ -20,14 +20,19 @@
 #ifndef MXADT_STACK_H_
 #define MXADT_STACK_H_
 
-#include "mxadt/types.h"
+#include <mxadt/types.h>
+#include <mxadt/single_link_element.h>
 
 /**
  * This is the declaration of the abstract data type "stack".
  * The attributes of structure was hidden of the programmer, for avoid
  * mistakes in programming.
  */
-typedef struct mxadt_stack mxadt_stack;
+typedef struct mxadt_stack
+{
+    size_t size;
+    mxadt_single_link_element* top;
+} mxadt_stack;
 
 /**
  * Creates a new empty stack.
@@ -45,16 +50,6 @@ mxadt_stack* mxadt_stack_create();
 void mxadt_stack_destroy(mxadt_stack* stack);
 
 /**
- * Returns the stack size.
- *
- * @param stack The pointer for the stack. If the stack pointer is NULL, a
- * segmentation fault will occur.
- *
- * @return The stack size.
- */
-inline size_t mxadt_stack_size(mxadt_stack* stack);
-
-/**
  * Tests whether the stack is empty.
  *
  * @param stack The pointer for the stack. If the stack pointer is NULL, a
@@ -63,16 +58,6 @@ inline size_t mxadt_stack_size(mxadt_stack* stack);
  * @return true if the stack is empty, or false otherwise.
  */
 inline bool mxadt_stack_empty(mxadt_stack* stack);
-
-/**
- * Returns the stack top.
- *
- * @param stack The pointer for the stack. If the stack pointer is NULL, a
- * segmentation fault will occur.
- *
- * @return The stack top.
- */
-inline void* mxadt_stack_top(mxadt_stack* stack);
 
 /**
  * Pushes a new value on the stack.

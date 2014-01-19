@@ -17,6 +17,7 @@ test/*_test
 # Vim files
 *.swp
 .vimsession
+.vimproject
 tags
 
 # Git files
@@ -26,7 +27,7 @@ tags
 *.tar.gz
 
 # Project files
-bin/
+dist/
 config.sub
 depcomp
 install-sh
@@ -37,7 +38,8 @@ configure
 aclocal.m4
 m4/
 build-aux/
-config.log
+*.log
+*.trs
 config.status
 libtool
 mxadt/config.h
@@ -48,8 +50,7 @@ mxadt/stamp-h1
 *.deps/
 *.libs/
 Makefile
-Makefile
-Makefile.in*
+*.in*
 config.guess
 doc/html/
 doc/man/

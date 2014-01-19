@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2011-2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2011-2014 Emerson Max de Medeiros Silva
 
   This file is part of mxadt.
 
@@ -19,15 +19,7 @@
 
 #include <stdlib.h>
 
-#include "mxadt/queue.h"
-#include "mxadt/single_link_element.h"
-
-struct mxadt_queue
-{
-    size_t size;
-    mxadt_single_link_element* front;
-    mxadt_single_link_element* back;
-};
+#include <mxadt/queue.h>
 
 mxadt_queue* mxadt_queue_create()
 {
@@ -52,24 +44,9 @@ void mxadt_queue_destroy(mxadt_queue* queue)
     free(queue);
 }
 
-size_t mxadt_queue_size(mxadt_queue* queue)
-{
-    return queue->size;
-}
-
 bool mxadt_queue_empty(mxadt_queue* queue)
 {
     return (queue->front == NULL) && (queue->back == NULL);
-}
-
-void* mxadt_queue_front(mxadt_queue* queue)
-{
-    return queue->front->data;
-}
-
-void* mxadt_queue_back(mxadt_queue* queue)
-{
-    return queue->back->data;
 }
 
 void mxadt_queue_push(mxadt_queue* queue, void* data)

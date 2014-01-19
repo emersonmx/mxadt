@@ -1,5 +1,5 @@
 /**
- * Copyright 2011 Emerson Max de Medeiros Silva
+ * Copyright 2011-2014 Emerson Max de Medeiros Silva
  *
  * Author: Emerson Max de Medeiros Silva <emersonmx@gmail.com>
  *
@@ -35,15 +35,15 @@ int main()
     mxadt_stack_pop(s);
     mxadt_stack_push(s, (void*) 5);
 
-    printf("Stack size: %u\n", mxadt_stack_size(s));
+    printf("Stack size: %u\n", s->size);
 
     while(!mxadt_stack_empty(s))
     {
-        printf("%d ", (int) mxadt_stack_top(s));
+        printf("%d ", (int) s->top->data);
         mxadt_stack_pop(s);
     }
 
-    printf("\nStack size: %u\n", mxadt_stack_size(s));
+    printf("\nStack size: %u\n", s->size);
 
     mxadt_stack_destroy(s);
     return 0;

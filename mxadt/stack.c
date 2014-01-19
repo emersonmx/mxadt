@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2011-2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2011-2014 Emerson Max de Medeiros Silva
 
   This file is part of mxadt.
 
@@ -19,14 +19,7 @@
 
 #include <stdlib.h>
 
-#include "mxadt/stack.h"
-#include "mxadt/single_link_element.h"
-
-struct mxadt_stack
-{
-    size_t size;
-    mxadt_single_link_element* top;
-};
+#include <mxadt/stack.h>
 
 mxadt_stack* mxadt_stack_create()
 {
@@ -51,19 +44,9 @@ void mxadt_stack_destroy(mxadt_stack* stack)
     free(stack);
 }
 
-size_t mxadt_stack_size(mxadt_stack* stack)
-{
-    return stack->size;
-}
-
 bool mxadt_stack_empty(mxadt_stack* stack)
 {
     return stack->top == NULL;
-}
-
-void* mxadt_stack_top(mxadt_stack* stack)
-{
-    return stack->top->data;
 }
 
 void mxadt_stack_push(mxadt_stack* stack, void* data)

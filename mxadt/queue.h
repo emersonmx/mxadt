@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2011-2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2011-2014 Emerson Max de Medeiros Silva
 
   This file is part of mxadt.
 
@@ -20,14 +20,20 @@
 #ifndef MXADT_QUEUE_H_
 #define MXADT_QUEUE_H_
 
-#include "mxadt/types.h"
+#include <mxadt/types.h>
+#include <mxadt/single_link_element.h>
 
 /**
  * This is the declaration of the abstract data type "queue".
  * The attributes of structure was hidden of the programmer, for avoid
  * mistakes in programming.
  */
-typedef struct mxadt_queue mxadt_queue;
+typedef struct mxadt_queue
+{
+    size_t size;
+    mxadt_single_link_element* front;
+    mxadt_single_link_element* back;
+} mxadt_queue;
 
 /**
  * Creates a new empty queue.
@@ -45,16 +51,6 @@ mxadt_queue* mxadt_queue_create();
 void mxadt_queue_destroy(mxadt_queue* queue);
 
 /**
- * Returns the queue size.
- *
- * @param queue The pointer for the queue. If the queue pointer is NULL, a
- * segmentation fault will occur.
- *
- * @return The queue size.
- */
-inline size_t mxadt_queue_size(mxadt_queue* queue);
-
-/**
  * Tests whether the queue is empty.
  *
  * @param queue The pointer for the queue. If the queue pointer is NULL, a
@@ -63,26 +59,6 @@ inline size_t mxadt_queue_size(mxadt_queue* queue);
  * @return true if the queue is empty, or false otherwise.
  */
 inline bool mxadt_queue_empty(mxadt_queue* queue);
-
-/**
- * Returns the first element of queue.
- *
- * @param queue The pointer for the queue. If the queue pointer is NULL, a
- * segmentation fault will occur.
- *
- * @return The first element of queue.
- */
-inline void* mxadt_queue_front(mxadt_queue* queue);
-
-/**
- * Returns the last element of queue.
- *
- * @param queue The pointer for the queue. If the queue pointer is NULL, a
- * segmentation fault will occur.
- *
- * @return The last element of queue.
- */
-inline void* mxadt_queue_back(mxadt_queue* queue);
 
 /**
  * Pushes a new value on the queue.

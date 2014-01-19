@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2011-2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2011-2014 Emerson Max de Medeiros Silva
 
   This file is part of mxadt.
 
@@ -20,15 +20,20 @@
 #ifndef MXADT_LINKED_LIST_H_
 #define MXADT_LINKED_LIST_H_
 
-#include "mxadt/types.h"
-#include "mxadt/double_link_element.h"
+#include <mxadt/types.h>
+#include <mxadt/double_link_element.h>
 
 /**
  * This is the declaration of the abstract data type "linked list".
  * The attributes of structure was hidden of the programmer, for avoid
  * mistakes in programming.
  */
-typedef struct mxadt_linked_list mxadt_linked_list;
+typedef struct mxadt_linked_list
+{
+    size_t size;
+    mxadt_double_link_element* front;
+    mxadt_double_link_element* back;
+} mxadt_linked_list;
 
 /**
  * Creates a new empty linked list.
@@ -48,16 +53,6 @@ mxadt_linked_list* mxadt_linked_list_create();
 void mxadt_linked_list_destroy(mxadt_linked_list* linked_list);
 
 /**
- * Returns the linked list size.
- *
- * @param linked_list The pointer for the linked list. If the linked list
- * pointer is NULL, a segmentation fault will occur.
- *
- * @return The linked list size.
- */
-inline size_t mxadt_linked_list_size(mxadt_linked_list* linked_list);
-
-/**
  * Tests whether the linked list is empty.
  *
  * @param linked_list The pointer for the linked list. If the linked list
@@ -66,50 +61,6 @@ inline size_t mxadt_linked_list_size(mxadt_linked_list* linked_list);
  * @return true if the linked list is empty, or false otherwise.
  */
 inline bool mxadt_linked_list_empty(mxadt_linked_list* linked_list);
-
-/**
- * Returns the last element of linked list.
- *
- * @param linked_list The pointer for the linked list. If the linked list
- * pointer is NULL, a segmentation fault will occur.
- *
- * @return The last element of linked list.
- */
-inline void* mxadt_linked_list_front(mxadt_linked_list* linked_list);
-
-/**
- * Returns the last element of linked list.
- *
- * @param linked_list The pointer for the linked list. If the linked list
- * pointer is NULL, a segmentation fault will occur.
- *
- * @return The last element of linked list.
- */
-inline void* mxadt_linked_list_back(mxadt_linked_list* linked_list);
-
-/**
- * Returns an iterator for the beggining of linked list
- * (mxadt_double_link_element).
- *
- * @param linked_list The pointer for the linked list. If the linked list
- * pointer is NULL, a segmentation fault will occur.
- *
- * @return An iterator for the beggining of linked list.
- */
-inline mxadt_double_link_element*
-mxadt_linked_list_front_element(mxadt_linked_list* linked_list);
-
-/**
- * Returns an iterator for the ending of linked list
- * (mxadt_double_link_element).
- *
- * @param linked_list The pointer for the linked list. If the linked list
- * pointer is NULL, a segmentation fault will occur.
- *
- * @return An iterator for the ending of linked list.
- */
-inline mxadt_double_link_element*
-mxadt_linked_list_back_element(mxadt_linked_list* linked_list);
 
 /**
  * Pushes a new value in the front of linked list.

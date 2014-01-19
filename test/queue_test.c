@@ -1,5 +1,5 @@
 /**
- * Copyright 2011 Emerson Max de Medeiros Silva
+ * Copyright 2011-2014 Emerson Max de Medeiros Silva
  *
  * Author: Emerson Max de Medeiros Silva <emersonmx@gmail.com>
  *
@@ -35,17 +35,17 @@ int main()
     mxadt_queue_push(q, (void*) 5);
     mxadt_queue_pop(q);
 
-    printf("Queue size: %u\n", mxadt_queue_size(q));
+    printf("Queue size: %u\n", q->size);
 
     while(!mxadt_queue_empty(q))
     {
         printf("Front: %d Back: %d\n",
-               (int) mxadt_queue_front(q),
-               (int) mxadt_queue_back(q));
+               (int) q->front->data,
+               (int) q->back->data);
         mxadt_queue_pop(q);
     }
 
-    printf("Queue size: %u\n", mxadt_queue_size(q));
+    printf("Queue size: %u\n", q->size);
 
     mxadt_queue_destroy(q);
 

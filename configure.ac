@@ -1,13 +1,17 @@
 # Prelude
-AC_INIT([mxadt], [0.1], [emersonmx@gmail.com])
+AC_INIT([mxadt], [0.1], [emersonmx@gmail.com], [],
+        [https://bitbucket.org/emersonmx/mxadt])
 AC_CONFIG_AUX_DIR([build-aux])
-AM_INIT_AUTOMAKE([-Wall])
 AC_CONFIG_MACRO_DIR([m4])
+AM_INIT_AUTOMAKE([1.11 -Wall foreign subdir-objects silent-rules])
+AM_SILENT_RULES([yes])
 
 # Checks for programs.
 AC_PROG_CC
-AC_LIBTOOL_DLOPEN
+AM_PROG_AR
 AC_PROG_LIBTOOL
+LT_INIT
+
 
 # Checks for libraries.
 
@@ -18,11 +22,7 @@ AC_PROG_LIBTOOL
 # Checks for library functions.
 
 # Output files.
-AC_CONFIG_HEADERS([src/mxadt/config.h])
-AC_CONFIG_FILES([
-    Makefile
-    src/Makefile
-    test/Makefile
-])
+AC_CONFIG_HEADERS([mxadt/config.h])
+AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 
